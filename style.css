@@ -133,6 +133,9 @@ ul li ul.dropdown li a:hover {
 
 .video-container video {
     width: min(100%, 1200px);
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    object-fit: contain;
 }
 
 .video-summary {
