@@ -3,9 +3,25 @@ html {
 }
 
 * {
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
     font-family:Arial, Helvetica, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-image {
+    width: 100%;
 }
 
 .navbar {
@@ -75,15 +91,15 @@ ul li ul.dropdown li a:hover {
 }
 
 .quote {
-    font-size: 50px;
+    font-size: clamp(2rem, 5vw, 3.125rem);
     font-weight: bold;
     font-style: italic;
     margin-bottom: 20px;
-    padding-left: 50px;
+    padding: 0 20px;
 }
 
 .author {
-    font-size: 35px;
+    font-size: clamp(1.4rem, 3.5vw, 2.2rem);
     font-style: italic;
     margin-top: 0;
 }
@@ -93,36 +109,40 @@ ul li ul.dropdown li a:hover {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
+    padding: 0 16px;
 }
 
 .image {
-    width: 500px;
+    width: min(100%, 500px);
     height: auto;
 }
 
 .center-image {
-    width: 800px;
+    width: min(100%, 800px);
 }
 
 .video-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 50vh;
     margin: 0;
+    padding: 0 16px;
 }
 
-.video {
-    width: 80%;
-    height: auto;
+.video-container video {
+    width: min(100%, 1200px);
 }
 
 .video-summary {
     text-align: center;
     margin-top: 5px;
-    margin-left: 50px;
-    margin-right: 50px;
-    font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 16px;
+    max-width: 1200px;
+    font-size: clamp(1rem, 2vw, 1.56rem);
     font-family: Arial, sans-serif;
     color: #333;
     line-height: 1.5;
@@ -137,6 +157,7 @@ ul li ul.dropdown li a:hover {
 .product-table {
     width: 100%;
     margin: 20px 0;
+    padding: 0 12px;
 }
 
 table {
@@ -148,6 +169,7 @@ td {
     width: 50%;
     padding: 0;
     text-align: center;
+    vertical-align: top;
 }
 
 .product {
@@ -157,8 +179,8 @@ td {
 }
 
 .image-box {
-    width: 700px;
-    height: 750px;
+    width: min(100%, 700px);
+    aspect-ratio: 14 / 15;
     margin: 0 auto;
     border-radius: 15px;
     overflow: hidden;
@@ -184,7 +206,7 @@ td {
 }
 
 .about{
-    padding: 80px;
+    padding: clamp(24px, 5vw, 80px);
     background-color: black;
 }
 
@@ -193,7 +215,7 @@ td {
     font-size: 50px;
     font-family: Arial, Helvetica, sans-serif;
     color: whitesmoke;
-    margin-left: 50px;
+    margin-left: 0;
 }
 
 .about-content{
@@ -201,6 +223,7 @@ td {
     align-items: center;
     gap: 50px;
     color: whitesmoke;
+    flex-wrap: wrap;
 }
 
 .about-content p{
@@ -208,7 +231,7 @@ td {
 }
 
 .image-right {
-    width: 500px;
+    width: min(100%, 500px);
     border-radius: 10px;
 }
 
@@ -228,4 +251,29 @@ td {
     padding: 20px 0;
     bottom: 0;
     width: 100%;
+}
+
+@media (max-width: 900px) {
+    .products-section h2,
+    .about h2 {
+        font-size: clamp(2rem, 8vw, 3.125rem);
+    }
+
+    .product {
+        display: block;
+        width: 100%;
+    }
+
+    table,
+    tbody,
+    tr,
+    td {
+        display: block;
+        width: 100%;
+    }
+
+    .links {
+        display: inline-block;
+        margin: 8px 10px;
+    }
 }
